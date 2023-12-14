@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="CSS/CplusStyles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&family=Noto+Sans&family=Open+Sans:wght@300&family=Poppins:wght@500&family=Roboto+Condensed:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobileQuiz</title>
+</head>
+
+    
+<body>
+    <div class="purple__background"></div>
+    <div class="Question__section">
+                Question
+                <div class="ques" id="question"> </div>
+            </div>
+    <div class="Workspace">
+            
+            
+        <div class="qPanel">
+            
+             
+             <div class="answer__btn">
+                <input type="radio" id="opt1" name="options">
+                <label class="Answer_style" for="opt1">A.
+                    <span id="optt1"></span>
+                </label>   
+            </div>
+
+            <div class="answer__btn">
+                <input type="radio" id="opt2" name="options">
+                <label class="Answer_style" for="opt2">B.
+                    <span id="optt2"></span>
+                </label>      
+            </div>
+
+            <div class="answer__btn">
+                <input type="radio" id="opt3" name="options">
+                <label class="Answer_style" for="opt3">C.
+                    <span id="optt3"></span>
+                </label>
+            </div>
+
+            <div class="answer__btn">
+                <input type="radio" id="opt4" name="options">
+                <label class="Answer_style" for="opt4">D.
+                    <span id="optt4"></span>
+                </label>
+            </div> 
+            
+            <div class="lftCss">
+            <button disabled="false" class="nxtBtn" id="next__btn" onclick="checkAnswer()">Next</button>
+            </div>
+        </div>
+
+       
+    </div>
+    <script src="JS/Data.js"></script>
+    <script src="JS/EventHandler.js"></script>
+</body>
+
+</html>
