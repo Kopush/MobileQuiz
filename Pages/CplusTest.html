@@ -27,34 +27,34 @@
              
              <div class="answer__btn">
                 <input type="radio" id="opt1" name="options">
-                <label class="Answer_style" for="opt1">A.
+                <label class="Answer_style"  id="answer1" for="opt1">A.
                     <span id="optt1"></span>
                 </label>   
             </div>
 
             <div class="answer__btn">
                 <input type="radio" id="opt2" name="options">
-                <label class="Answer_style" for="opt2">B.
+                <label class="Answer_style" id="answer2" for="opt2">B.
                     <span id="optt2"></span>
                 </label>      
             </div>
 
             <div class="answer__btn">
                 <input type="radio" id="opt3" name="options">
-                <label class="Answer_style" for="opt3">C.
+                <label class="Answer_style"  id="answer3" for="opt3">C.
                     <span id="optt3"></span>
                 </label>
             </div>
 
             <div class="answer__btn">
                 <input type="radio" id="opt4" name="options">
-                <label class="Answer_style" for="opt4">D.
+                <label class="Answer_style"  id="answer4" for="opt4">D.
                     <span id="optt4"></span>
                 </label>
             </div> 
             
             <div class="lftCss">
-            <button disabled="false" class="nxtBtn" id="next__btn" onclick="checkAnswer()">Next</button>
+            <button class="nxtBtn" id="next__btn" onclick="setTimeout(checkAnswer, delay)">Next</button>
             </div>
         </div>
 

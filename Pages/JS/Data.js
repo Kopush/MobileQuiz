@@ -1,6 +1,6 @@
 var jsonData = [
     {
-        "q" : "Имя основной программы в С++?",
+        "q" : "The name of the main program in C++?",
         "opt1" : "mian",
         "opt2" : "main",
         "opt3" : "mein",
@@ -8,31 +8,31 @@ var jsonData = [
         "answer" : "main"
     },
     {
-        "q" : "Какие имена переменных являются правильными? (выберите несколько вариантов ответа)",
+        "q" : "Which variable names are correct? (select several possible answers)",
         "opt1" : "1Ва",
         "opt2" : "D234",
         "opt3" : "_gh",
         "opt4" : "“D(f)”",
-        "answer" : "D234"
+        "answer" : ["D234","_gh"]
     },
     {
-        "q" : "Какие операции поддаются перегрузке?",
-        "opt1" : "унарные и бинарные",
-        "opt2" : "только унарные",
-        "opt3" : "только бинарные",
-        "opt4" : "логические и реляционные",
-        "answer" : "унарные и бинарные"
+        "q" : "Which operations can be overloaded?",
+        "opt1" : "unary and binary",
+        "opt2" : "only unary ones",
+        "opt3" : "binary only",
+        "opt4" : "logical and relational",
+        "answer" : "unary and binary"
     },
     {
-        "q" : "Выберите правильное утверждение",
-        "opt1" : "целой константе можно присвоить вещественную переменную",
-        "opt2" : "целой переменной можно присвоить вещественную константу",
-        "opt3" : "целой константе можно присвоить целую переменную",
-        "opt4" : "все варианты верны",
-        "answer" : "целой переменной можно присвоить вещественную константу"
+        "q" : "Choose the correct statement",
+        "opt1" : "an integer constant can be assigned a real variable",
+        "opt2" : "an integer variable can be assigned a real constant",
+        "opt3" : "an entire constant can be assigned an entire variable",
+        "opt4" : "all options are correct",
+        "answer" : "an integer variable can be assigned a real constant"
     },
     {
-        "q" : "В переменной типа unsigned char можно хранить число ___",
+        "q" : "A number can be stored in an unsigned char variable ___",
         "opt1" : "-1",
         "opt2" : "1213",
         "opt3" : "13",
