@@ -12,39 +12,78 @@ function generate(index) {
     document.getElementById("optt4").innerHTML = jsonData[index].opt4;
 }
 
+
+
+// Получаем ссылки на элементы
+const radioButtons = document.querySelectorAll('input[type="radio"]');
+const button = document.querySelector('button');
+
+// Привязываем слушатель событий к radio buttons
+for (let i = 0; i < radioButtons.length; i++) {
+  radioButtons[i].addEventListener('change', () => {
+    // Если выбран хотя бы один radio button, активируем кнопку
+    if (radioButtons[i].checked) {
+      button.disabled = false;
+    } else {
+      button.disabled = true;
+    }
+  });
+}
 var delay = 3000;
-setTimeout( checkAnswer, delay )
-
+setTimeout(checkAnswer, delay )
 function checkAnswer() {
-        
 
-        if(document.getElementById("opt1").checked && jsonData[i].opt1 == jsonData[i].answer || 
-        document.getElementById("opt2").checked && jsonData[i].opt2 == jsonData[i].answer    ||
-        document.getElementById("opt3").checked && jsonData[i].opt3 == jsonData[i].answer    ||
-        document.getElementById("opt4").checked && jsonData[i].opt4 == jsonData[i].answer)
-          {
-             // получение элемента по селектору
-             let styles = `border: 3px #14FF00;`;
-             document.querySelector("#answer1").style = styles;
+        const LabelButton1 = document.getElementById('answer1');
 
-             document.querySelector("#answer2").style = styles;
+                 if (jsonData[i].opt1 == jsonData[i].answer) 
+                 {
+                    LabelButton1 .classList.remove('static-border');
+                    LabelButton1 .classList.add('green-border');
+                 } 
+                 else 
+                 {
+                    LabelButton1 .classList.remove('static-border');
+                    LabelButton1 .classList.add('red-border');
+                 }
 
-             document.querySelector("#answer3").style = styles;
+                 const LabelButton2 = document.getElementById('answer2');
 
-             document.querySelector("#answer4").style = styles;
-          }
-          else
-          {
+                 if (jsonData[i].opt2 == jsonData[i].answer) 
+                 {
+                    LabelButton2 .classList.remove('static-border');
+                    LabelButton2 .classList.add('green-border');
+                 } 
+                 else 
+                 {
+                    LabelButton2 .classList.remove('static-border');
+                    LabelButton2 .classList.add('red-border');
+                 }
 
-            let styles2 = `border: 3px #FF7979;`;
-             document.querySelector("#answer1").style = styles2;
+                 const LabelButton3 = document.getElementById('answer3');
 
-             document.querySelector("#answer2").style = styles2;
+                 if (jsonData[i].opt3 == jsonData[i].answer) 
+                 {
+                    LabelButton3 .classList.remove('static-border');
+                    LabelButton3 .classList.add('green-border');
+                 } 
+                 else 
+                 {
+                    LabelButton3 .classList.remove('static-border');
+                    LabelButton3 .classList.add('red-border');
+                 }
 
-             document.querySelector("#answer3").style = styles2;
+                 const LabelButton4 = document.getElementById('answer4');
 
-             document.querySelector("#answer4").style = styles2;
-          }
+                 if (jsonData[i].opt4 == jsonData[i].answer) 
+                 {
+                    LabelButton4 .classList.remove('static-border');
+                    LabelButton4 .classList.add('green-border');
+                 } 
+                 else 
+                 {
+                    LabelButton4 .classList.remove('static-border');
+                    LabelButton4 .classList.add('red-border');
+                 }
 
     if (document.getElementById("opt1").checked && jsonData[i].opt1 == jsonData[i].answer) {
        correctCount++;

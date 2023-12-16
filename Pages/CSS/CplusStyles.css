@@ -58,13 +58,13 @@
     margin-left: 48px;
     margin-top: 40px;
 }
-.Answer_style{
-    border-color: black;
-}
+
 .qPanel  div:not(:last-child){
    margin-bottom: 25px;
 }
 .answer__btn label {
+    
+
 	display: inline-block;
 	cursor: pointer;
 	padding: 0px 15px;
@@ -73,12 +73,12 @@
     height: 55px;
     border-radius: 14px;
     background: #FFF;
-    align-self: center;
+    position: 'relative';
 
-box-shadow: 0px 2px 13px 4px rgba(157, 87, 227, 0.25);
+    box-shadow: 0px 2px 13px 4px rgba(157, 87, 227, 0.25);
 }
 .answer__btn input[type=radio] {
-	display: none;
+	visibility: visible;
 }
 .answer__btn span{
     color: #5B1CAE;
@@ -90,14 +90,20 @@ box-shadow: 0px 2px 13px 4px rgba(157, 87, 227, 0.25);
     line-height: 20px;
     border: 3px #000;
 }
-#answer1{
+#answer1
+{
 
 }
-#answer2{
+#answer2
+{
 
-}#answer3{
+}
+#answer3
+{
 
-}#answer4{
+}
+#answer4
+{
 
 }
 .nxtBtn{
@@ -119,10 +125,15 @@ box-shadow: 0px 2px 13px 4px rgba(157, 87, 227, 0.25);
     font-weight: 500;
     line-height: normal;
     
+    
 }
-.incorrect{
-    border: 3px #FF7979;
-}
-.correct{
-    border: 3px #14FF00;
-}
+.static-border {
+    border: 3px solid #FFF;
+  }
+.red-border {
+    border: 3px solid #FF7979;
+  }
+  
+  .green-border {
+    border: 3px solid #14FF00;
+  }
