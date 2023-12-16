@@ -1,6 +1,7 @@
 // json array movement variable
 var i = 0;
 var correctCount = 0 ;
+var answers =0;
 //initialize the first question
 generate(0);
 // generate from json array data with index
@@ -33,6 +34,7 @@ var delay = 3000;
 setTimeout(checkAnswer, delay )
 function checkAnswer() {
 
+        
         const LabelButton1 = document.getElementById('answer1');
 
                  if (jsonData[i].opt1 == jsonData[i].answer) 
@@ -85,6 +87,11 @@ function checkAnswer() {
                     LabelButton4 .classList.add('red-border');
                  }
 
+                 LabelButton1 .classList.add('static-border');
+                 LabelButton2 .classList.add('static-border');
+                 LabelButton3 .classList.add('static-border');
+                 LabelButton4 .classList.add('static-border');
+
     if (document.getElementById("opt1").checked && jsonData[i].opt1 == jsonData[i].answer) {
        correctCount++;
     }
@@ -99,6 +106,7 @@ function checkAnswer() {
     }
     // increment i for next question
      i++;
+
        if(jsonData.length-1 < i)
     {
         document.write("<body style='margin:0px;overflow: hidden;'>");

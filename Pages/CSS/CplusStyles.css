@@ -78,7 +78,7 @@
     box-shadow: 0px 2px 13px 4px rgba(157, 87, 227, 0.25);
 }
 .answer__btn input[type=radio] {
-	visibility: visible;
+	display: none;
 }
 .answer__btn span{
     color: #5B1CAE;
