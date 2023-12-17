@@ -1,125 +1,177 @@
-// json array movement variable
-var i = 0;
-var correctCount = 0 ;
-var answers =0;
-//initialize the first question
-generate(0);
-// generate from json array data with index
-function generate(index) {
-    document.getElementById("question").innerHTML = jsonData[index].q;
-    document.getElementById("optt1").innerHTML = jsonData[index].opt1;
-    document.getElementById("optt2").innerHTML = jsonData[index].opt2;
-    document.getElementById("optt3").innerHTML = jsonData[index].opt3;
-    document.getElementById("optt4").innerHTML = jsonData[index].opt4;
+const questions = [
+  {
+      question : "The name of the main program in C++?",
+      answers: [
+          { text: "mian", correct: false},
+          { text: "main", correct: true},
+          { text: "mein", correct: false},
+          { text: "maen", correct: false},
+      ]
+  },
+
+  {
+      question : "Which variable names are correct? (select several possible answers)",
+      answers:[
+          { text: "1Bа", correct: false},
+          { text: "D234", correct: true},
+          { text: "_gh", correct: true},
+          { text: "“D(f)”", correct: false}
+      ]
+  },
+
+  {
+      question : "Which operations can be overloaded?",
+      answers:[
+          { text: "unary and binary", correct: true},
+          { text: "only unary ones", correct: false},
+          { text: "binary only", correct: false},
+          { text: "logical and relational", correct: false}
+      ]
+  },
+
+  {
+      question : "Choose the correct statement",
+      answers:[
+          { text: "an integer constant can be assigned a real variable", correct: false},
+          { text: "an integer variable can be assigned a real constant", correct: true},
+          { text: "an entire constant can be assigned an entire variable", correct: false},
+          { text: "all options are correct", correct: false}
+      ]
+  },
+
+  {
+      question : "A number can be stored in an unsigned char variable ___",
+      answers:[
+          { text: "-1", correct: false},
+          { text: "1213", correct: false},
+          { text: "13", correct: true},
+          { text: "-13", correct: false}
+      ]
+  },
+
+  {
+      question : "From which tag descriptive list starts ?",
+      answers:[
+          { text: "LL", correct: false},
+          { text: "DL", correct: true},
+          { text: "DD", correct: false},
+          { text: "DS", correct: false}
+      ]
+  },
+];
+
+const questionElement = document.getElementById("question");
+const answer_buttons = document.getElementById("answer__buttons");
+const next_button = document.getElementById("next__btn");
+
+let currentQuestionIndex =0;
+let score = 0;
+
+
+var delay = 3000;
+setTimeout( startQuiz, delay )
+
+
+//Старт тестирования
+function startQuiz()
+{
+    currentQuestionIndex=0;
+    score=0;
+    next_button.innerHTML = "Next";
+    showQuestion();
 }
 
 
+function showQuestion()
+{
+  resetState();
+//Добавление к вопросу его порядкового номера
+  let currentQuestion = questions[currentQuestionIndex];
+  let questionNumber = currentQuestionIndex + 1;
+  questionElement.innerHTML = questionNumber + ". " + currentQuestion.question;
 
-// Получаем ссылки на элементы
-const radioButtons = document.querySelectorAll('input[type="radio"]');
-const button = document.querySelector('button');
+  //Окрашивание border
+  currentQuestion.answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.innerHTML = answer.text;
+    button.classList.add("static-border")
+    answer_buttons.appendChild(button);
 
-// Привязываем слушатель событий к radio buttons
-for (let i = 0; i < radioButtons.length; i++) {
-  radioButtons[i].addEventListener('change', () => {
-    // Если выбран хотя бы один radio button, активируем кнопку
-    if (radioButtons[i].checked) {
-      button.disabled = false;
-    } else {
-      button.disabled = true;
+    if(answer.correct)
+    {
+      button.dataset.correct = answer.correct;
     }
+    button.addEventListener("click", selectAnswer);
   });
 }
-var delay = 3000;
-setTimeout(checkAnswer, delay )
-function checkAnswer() {
 
-        
-        const LabelButton1 = document.getElementById('answer1');
-
-                 if (jsonData[i].opt1 == jsonData[i].answer) 
-                 {
-                    LabelButton1 .classList.remove('static-border');
-                    LabelButton1 .classList.add('green-border');
-                 } 
-                 else 
-                 {
-                    LabelButton1 .classList.remove('static-border');
-                    LabelButton1 .classList.add('red-border');
-                 }
-
-                 const LabelButton2 = document.getElementById('answer2');
-
-                 if (jsonData[i].opt2 == jsonData[i].answer) 
-                 {
-                    LabelButton2 .classList.remove('static-border');
-                    LabelButton2 .classList.add('green-border');
-                 } 
-                 else 
-                 {
-                    LabelButton2 .classList.remove('static-border');
-                    LabelButton2 .classList.add('red-border');
-                 }
-
-                 const LabelButton3 = document.getElementById('answer3');
-
-                 if (jsonData[i].opt3 == jsonData[i].answer) 
-                 {
-                    LabelButton3 .classList.remove('static-border');
-                    LabelButton3 .classList.add('green-border');
-                 } 
-                 else 
-                 {
-                    LabelButton3 .classList.remove('static-border');
-                    LabelButton3 .classList.add('red-border');
-                 }
-
-                 const LabelButton4 = document.getElementById('answer4');
-
-                 if (jsonData[i].opt4 == jsonData[i].answer) 
-                 {
-                    LabelButton4 .classList.remove('static-border');
-                    LabelButton4 .classList.add('green-border');
-                 } 
-                 else 
-                 {
-                    LabelButton4 .classList.remove('static-border');
-                    LabelButton4 .classList.add('red-border');
-                 }
-
-                 LabelButton1 .classList.add('static-border');
-                 LabelButton2 .classList.add('static-border');
-                 LabelButton3 .classList.add('static-border');
-                 LabelButton4 .classList.add('static-border');
-
-    if (document.getElementById("opt1").checked && jsonData[i].opt1 == jsonData[i].answer) {
-       correctCount++;
-    }
-    if (document.getElementById("opt2").checked && jsonData[i].opt2 == jsonData[i].answer) {
-        correctCount++;
-    }
-    if (document.getElementById("opt3").checked && jsonData[i].opt3 == jsonData[i].answer) {
-        correctCount++;
-    }
-    if (document.getElementById("opt4").checked && jsonData[i].opt4 == jsonData[i].answer) {
-        correctCount++;
-    }
-    // increment i for next question
-     i++;
-
-       if(jsonData.length-1 < i)
+function resetState()
+{
+    next_button.style.display = "none";
+    while(answer_buttons.firstChild)
     {
-        document.write("<body style='margin:0px;overflow: hidden;'>");
-        document.write("<div style='background-image:url(C:/Users/serg-/Documents/GitHub/MobileQuiz-1/Pages/JS/Resources/BackgroundComplete.png);width:411px;height:882px'></div>");
-        document.write("<form action=Quiz.html style='margin-left: -38px;width:300px;height:300px;position:absolute;margin-top:426px;'>"); 
-        document.write("<button style='border:none;margin-top: -1211px;margin-left: 89px;width: 90px;height: 90px;position:absolute;background-image:url(C:/Users/serg-/Documents/GitHub/MobileQuiz-1/Pages/JS/Resources/quiz1.svg);'>");
-        document.write("</form>");
-        document.write("<div style='margin-left: -10px;margin-top: 210px;position:absolute;color:#ffffff;font-size:18pt;text-align:center;color: #5B1CAE;width: 316px;height: 138px;border-radius: 14px;background: #FFF;box-shadow: 0px 2px 13px 4px rgba(157, 87, 227, 0.25);align-items: center;font-family: Poppins;font-weight: 500;'>Your score is : "+correctCount+"</div>");
-        document.write("<img style='background-image: url(C:/Users/serg-/Documents/GitHub/MobileQuiz-1/Pages/JS/Resources/completed1.png);margin-left: -38px;width:300px;height:300px;position:absolute;margin-top:426px;'></img>");
-        document.write("</body>");
+      answer_buttons.removeChild(answer_buttons.firstChild);
     }
-    generate(i);     
-
-    
-    
 }
+
+function selectAnswer(e)
+{
+  const selectedBtn = e.target;
+  const isCorrect = selectedBtn.dataset.correct === "true";
+
+  
+  if(isCorrect)
+  {
+    selectedBtn.classList.add("green-border");
+    score++;
+  }
+  else
+  {
+    selectedBtn.classList.add("red-border");
+  }
+
+  //Array.from(answer_buttons.children).forEach(button => {
+    //if(button.dataset.correct === "true")
+    //{
+     // button.classList.add("green-border")
+    //}
+    //button.disabled = true;
+  //});
+  next_button.style.display = "block";
+}
+
+function showScore()
+{
+  resetState();
+
+  questionElement.innerHTML = `Вы набрали ${score} очков из ${questions.length} вопросов`;
+  next_button.innerHTML = "Начать сначала";
+  next_button.style.display = "block";
+}
+
+
+function handleNextButton()
+{
+  currentQuestionIndex++;
+  if(currentQuestionIndex < questions.length)
+  {
+    showQuestion();
+  }
+  else
+  {
+    showScore();
+  }
+}
+
+next_button.addEventListener("click",() => {
+  if(currentQuestionIndex < questions.length)
+  {
+    handleNextButton();
+  }
+  else
+  {
+    startQuiz();
+  }
+} );
+
+startQuiz();

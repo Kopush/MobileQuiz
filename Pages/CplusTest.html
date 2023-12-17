@@ -22,43 +22,20 @@
     <div class="Workspace">
             
             
-        <div class="qPanel">
+        <div class="qPanel" id="answer__buttons">
+
             
-             
-             <div class="answer__btn">
-                <input type="radio" id="opt1" name="options">
-                <label id="answer1" for="opt1" class="static-border">A.
-                    <span id="optt1"></span>
-                </label>   
-            </div>
-
-            <div class="answer__btn">
-                <input type="radio" id="opt2" name="options">
-                <label id="answer2" for="opt2" class="static-border">B.
-                    <span id="optt2"></span>
-                </label>      
-            </div>
-
-            <div class="answer__btn">
-                <input type="radio" id="opt3" name="options">
-                <label id="answer3" for="opt3" class="static-border">C.
-                    <span id="optt3"></span>
-                </label>
-            </div>
-
-            <div class="answer__btn">
-                <input type="radio" id="opt4" name="options">
-                <label  id="answer4" for="opt4" class="static-border">D.
-                    <span id="optt4"></span>
-                </label>
-            </div> 
             
-            <div class="lftCss">
-            <button disabled class="nxtBtn" id="next__btn" onclick="checkAnswer()">Next</button>
-            </div>
+            <button class="static-border">Ans1</button>
+            <button class="static-border">Ans2</button>
+            <button class="static-border">Ans3</button>
+            <button class="static-border">Ans4</button>
+           
         </div>
 
-       
+        <button class="nxtBtn" 
+        id="next__btn" onclick="checkAnswer()">Next</button>
+
     </div>
     <script src="JS/Data.js"></script>
     <script src="JS/EventHandler.js"></script>

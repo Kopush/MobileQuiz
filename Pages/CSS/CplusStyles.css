@@ -23,6 +23,24 @@
     border-bottom: 18px;
     position: relative;
 }
+.qPanel button{
+    display: inline-block;
+	cursor: pointer;
+	padding: 0px 15px;
+	line-height: 29px;
+    width: 316px;
+    height: 55px;
+    border-radius: 14px;
+    background: #FFF;
+    position: 'relative';
+
+    box-shadow: 0px 2px 13px 4px rgba(157, 87, 227, 0.25);
+}
+
+.qPanel  button:not(:last-child){
+    margin-bottom: 25px;
+ }
+
 .ques{
     margin-top: 10px;
     color: #5B1CAE;
@@ -110,6 +128,9 @@
     margin-left: 70px;
     width: 196px;
     height: 64px;
+    margin-top: 25px;
+
+    display: none;
 
     border-radius: 50px;
     border: none;
@@ -129,6 +150,14 @@
 }
 .static-border {
     border: 3px solid #FFF;
+  }
+  .static-border:active {
+    background-color: #e0e0e0;
+    border: 3px solid #e0e0e0;
+  }
+  .static-border:focus {
+    background-color: #e0e0e0;
+    border: 3px solid #e0e0e0;
   }
 .red-border {
     border: 3px solid #FF7979;

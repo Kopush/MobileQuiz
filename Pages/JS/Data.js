@@ -1,50 +1,61 @@
-var jsonData = [
+const jsonData = [
     {
-        "q" : "The name of the main program in C++?",
-        "opt1" : "mian",
-        "opt2" : "main",
-        "opt3" : "mein",
-        "opt4" : "maen",
-        "answer" : "main"
+        question : "The name of the main program in C++?",
+        answers: [
+            { text: "mian", correct: false},
+            { text: "main", correct: true},
+            { text: "mein", correct: false},
+            { text: "maen", correct: false},
+        ]
     },
+
     {
-        "q" : "Which variable names are correct? (select several possible answers)",
-        "opt1" : "1Ва",
-        "opt2" : "D234",
-        "opt3" : "_gh",
-        "opt4" : "“D(f)”",
-        "answer" : ["D234","_gh"]
+        question : "Which variable names are correct? (select several possible answers)",
+        answers:[
+            { text: "1Bа", correct: false},
+            { text: "D234", correct: true},
+            { text: "_gh", correct: true},
+            { text: "“D(f)”", correct: false}
+        ]
     },
+
     {
-        "q" : "Which operations can be overloaded?",
-        "opt1" : "unary and binary",
-        "opt2" : "only unary ones",
-        "opt3" : "binary only",
-        "opt4" : "logical and relational",
-        "answer" : "unary and binary"
+        question : "Which operations can be overloaded?",
+        answers:[
+            { text: "unary and binary", correct: true},
+            { text: "only unary ones", correct: false},
+            { text: "binary only", correct: false},
+            { text: "logical and relational", correct: false}
+        ]
     },
+
     {
-        "q" : "Choose the correct statement",
-        "opt1" : "an integer constant can be assigned a real variable",
-        "opt2" : "an integer variable can be assigned a real constant",
-        "opt3" : "an entire constant can be assigned an entire variable",
-        "opt4" : "all options are correct",
-        "answer" : "an integer variable can be assigned a real constant"
+        question : "Choose the correct statement",
+        answers:[
+            { text: "an integer constant can be assigned a real variable", correct: false},
+            { text: "an integer variable can be assigned a real constant", correct: true},
+            { text: "an entire constant can be assigned an entire variable", correct: false},
+            { text: "all options are correct", correct: false}
+        ]
     },
+
     {
-        "q" : "A number can be stored in an unsigned char variable ___",
-        "opt1" : "-1",
-        "opt2" : "1213",
-        "opt3" : "13",
-        "opt4" : "-13",
-        "answer" : "13"
+        question : "A number can be stored in an unsigned char variable ___",
+        answers:[
+            { text: "-1", correct: false},
+            { text: "1213", correct: false},
+            { text: "13", correct: true},
+            { text: "-13", correct: false}
+        ]
     },
+
     {
-        "q" : "From which tag descriptive list starts ?",
-        "opt1" : "LL",
-        "opt2" : "DL",
-        "opt3" : "DD",
-        "opt4" : "All of these",
-        "answer" : "DL"
+        question : "From which tag descriptive list starts ?",
+        answers:[
+            { text: "LL", correct: false},
+            { text: "DL", correct: true},
+            { text: "DD", correct: false},
+            { text: "DS", correct: false}
+        ]
     },
 ];
