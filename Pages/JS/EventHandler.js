@@ -6,7 +6,8 @@ const questions = [
           { text: "main", correct: true},
           { text: "mein", correct: false},
           { text: "maen", correct: false},
-      ]
+      ],
+      right_answers:["main"],
   },
 
   {
@@ -16,7 +17,8 @@ const questions = [
           { text: "D234", correct: true},
           { text: "_gh", correct: true},
           { text: "“D(f)”", correct: false}
-      ]
+      ],
+      right_answers:["D234","_gh"],
   },
 
   {
@@ -26,7 +28,8 @@ const questions = [
           { text: "only unary ones", correct: false},
           { text: "binary only", correct: false},
           { text: "logical and relational", correct: false}
-      ]
+      ],
+      right_answers:["unary and binary"],
   },
 
   {
@@ -36,7 +39,8 @@ const questions = [
           { text: "an integer variable can be assigned a real constant", correct: true},
           { text: "an entire constant can be assigned an entire variable", correct: false},
           { text: "all options are correct", correct: false}
-      ]
+              ],
+      right_answers:["an integer variable can be assigned a real constant"],
   },
 
   {
@@ -46,7 +50,8 @@ const questions = [
           { text: "1213", correct: false},
           { text: "13", correct: true},
           { text: "-13", correct: false}
-      ]
+      ],
+      right_answers:["13"],
   },
 
   {
@@ -56,13 +61,15 @@ const questions = [
           { text: "DL", correct: true},
           { text: "DD", correct: false},
           { text: "DS", correct: false}
-      ]
+      ],
+      right_answers:["DL"],
   },
 ];
 
 const questionElement = document.getElementById("question");
 const answer_buttons = document.getElementById("answer__buttons");
 const next_button = document.getElementById("next__btn");
+
 
 let currentQuestionIndex =0;
 let score = 0;
@@ -86,6 +93,7 @@ function showQuestion()
 {
   resetState();
 //Добавление к вопросу его порядкового номера
+
   let currentQuestion = questions[currentQuestionIndex];
   let questionNumber = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNumber + ". " + currentQuestion.question;
@@ -101,7 +109,7 @@ function showQuestion()
     {
       button.dataset.correct = answer.correct;
     }
-    button.addEventListener("click", selectAnswer);
+    button.addEventListener("click", checkAnswer);
   });
 }
 
@@ -114,20 +122,20 @@ function resetState()
     }
 }
 
-function selectAnswer(e)
+function selectAnswer()
 {
-  const selectedBtn = e.target;
+
   const isCorrect = selectedBtn.dataset.correct === "true";
 
   
   if(isCorrect)
   {
-    selectedBtn.classList.add("green-border");
+    //selectedBtn.classList.add("green-border");
     score++;
   }
   else
   {
-    selectedBtn.classList.add("red-border");
+    //selectedBtn.classList.add("red-border");
   }
 
   //Array.from(answer_buttons.children).forEach(button => {
@@ -140,9 +148,66 @@ function selectAnswer(e)
   next_button.style.display = "block";
 }
 
+
+//function checkAnswers() {
+
+  const isCorrect = selectedBtn.dataset.correct === "true";
+  const allPossibleAnswers = right_answers.length;
+  if(isCorrect && allPossibleAnswers)
+  {
+    //selectedBtn.classList.add("green-border");
+    score++;
+  }
+  else
+  {
+    //selectedBtn.classList.add("red-border");
+  }
+//}
+
+function disableButtons() {
+  const buttons = document.querySelectorAll('button');
+  for (let i = 0; i < buttons.length; i++) {
+    if (selectedButtons.indexOf(buttons[i].value) !== -1) {
+      buttons[i].disabled = true;
+    } else {
+      buttons[i].disabled = false;
+    }
+  }
+}
+
+function checkAnswer(e) {
+
+  //var stpi = JSON.parse(questions);
+  //var tyn = stpi.right_answers.ra.length;
+
+
+  const selectedBtn = e.target;
+  const correctAnswers = questions.right_answers.value;
+  const isCorrect = selectedBtn.dataset.correct === "true";
+
+
+  Array.from(answer_buttons.children).forEach(button => {
+    if(isCorrect && selectedBtn.length === correctAnswers)
+    {
+      button.classList.add("green-border")
+      score++;
+    }
+    else
+    {
+      selectedBtn.classList.add("red-border");
+    }
+  disableButtons();
+ 
+  });
+     next_button.style.display = "block";
+  }
+
+
 function showScore()
 {
   resetState();
+
+  document.getElementById("back").add
 
   questionElement.innerHTML = `Вы набрали ${score} очков из ${questions.length} вопросов`;
   next_button.innerHTML = "Начать сначала";

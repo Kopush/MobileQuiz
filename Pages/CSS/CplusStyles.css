@@ -150,6 +150,7 @@
 }
 .static-border {
     border: 3px solid #FFF;
+    display: inline-block;
   }
   .static-border:active {
     background-color: #e0e0e0;
