@@ -125,9 +125,13 @@ function resetState()
 function selectAnswer(e)
 {
   const selectedBtn = e.target;// Выбор конкретной кнопки
-  const correctAnswers = questions[2].right_answers.value;// Получение списка значений правильных ответов
   
-  if(selectedBtn.answer == correctAnswers)//Проверка соответствия значения выбранной кнопки с верными значениями
+  
+  for (var i = 0; i < questions[i].answers.length; i++)
+  {
+    ans_index = e--;
+    
+    if(questions[ans_index].answers[i] in questions[ans_index].right_answers)//Проверка соответствия значения выбранной кнопки с верными значениями
   {
     selectedBtn.classList.add("green-border");
     score++;//Начисление очков 
@@ -136,6 +140,8 @@ function selectAnswer(e)
   {
     selectedBtn.classList.add("red-border");
   }
+  }
+  
 
   //Array.from(answer_buttons.children).forEach(button => {
     //if(button.dataset.ra === "true")
@@ -163,39 +169,44 @@ function selectAnswer(e)
   //}
 //}
 
-function checkAnswer(e) {
+//function checkAnswer(e) {
 
   //var stpi = JSON.parse(questions);
-  var tyn = questions[1].right_answers.length;
+  //var tyn = questions[1].right_answers.length;
 
 
-  const selectedBtn = e.target;
-  const correctAnswers = questions[1].right_answers.value;
-  const isCorrect = selectedBtn.dataset.correct === "true";
+  //const selectedBtn = e.target;
+  //const correctAnswers = questions[1].right_answers.value;
+  //const isCorrect = selectedBtn.dataset.correct === "true";
 
 
-  Array.from(answer_buttons.children).forEach(button => {
-    if(isCorrect && selectedBtn.length === correctAnswers)
-    {
-      button.classList.add("green-border")
-      score++;
-    }
-    else
-    {
-      selectedBtn.classList.add("red-border");
-    }
+  //Array.from(answer_buttons.children).forEach(button => {
+    //if(isCorrect && selectedBtn.length === correctAnswers)
+    //{
+      //button.classList.add("green-border")
+      //score++;
+    //}
+    //else
+    //{
+      //selectedBtn.classList.add("red-border");
+    //}
   //disableButtons();
  
-  });
-     next_button.style.display = "block";
- }
+  //});
+     //next_button.style.display = "block";
+ //}
 
 
 function showScore()
 {
   resetState();
 
-  document.getElementById("back").add
+  document.getElementById("back").classList.remove("purple__background");
+  document.getElementById("back").classList.add("backgrnd");
+
+  //document.getElementById("Qform").classList.remove("Question__section");
+  //document.getElementById("Qform").classList.add("Question__section_score");
+  //margin-top: -545px;
 
   questionElement.innerHTML = `Вы набрали ${score} очков из ${questions.length} вопросов`;
   next_button.innerHTML = "Начать сначала";
