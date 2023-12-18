@@ -109,7 +109,7 @@ function showQuestion()
     {
       button.dataset.correct = answer.correct;
     }
-    button.addEventListener("click", checkAnswer);
+    button.addEventListener("click", selectAnswer);
   });
 }
 
@@ -122,67 +122,55 @@ function resetState()
     }
 }
 
-function selectAnswer()
+function selectAnswer(e)
 {
-
-  const isCorrect = selectedBtn.dataset.correct === "true";
-
+  const selectedBtn = e.target;// Выбор конкретной кнопки
+  const correctAnswers = questions[2].right_answers.value;// Получение списка значений правильных ответов
   
-  if(isCorrect)
+  if(selectedBtn.answer == correctAnswers)//Проверка соответствия значения выбранной кнопки с верными значениями
   {
-    //selectedBtn.classList.add("green-border");
-    score++;
+    selectedBtn.classList.add("green-border");
+    score++;//Начисление очков 
   }
   else
   {
-    //selectedBtn.classList.add("red-border");
+    selectedBtn.classList.add("red-border");
   }
 
   //Array.from(answer_buttons.children).forEach(button => {
-    //if(button.dataset.correct === "true")
+    //if(button.dataset.ra === "true")
     //{
-     // button.classList.add("green-border")
+      //button.classList.add("green-border")
     //}
-    //button.disabled = true;
+    //else if (button.dataset.ra === "false")
+    //{
+      //selectedBtn.classList.add("red-border");
+   // }
+ // button.disabled = true;
   //});
   next_button.style.display = "block";
 }
 
 
-//function checkAnswers() {
-
-  const isCorrect = selectedBtn.dataset.correct === "true";
-  const allPossibleAnswers = right_answers.length;
-  if(isCorrect && allPossibleAnswers)
-  {
-    //selectedBtn.classList.add("green-border");
-    score++;
-  }
-  else
-  {
-    //selectedBtn.classList.add("red-border");
-  }
+//function disableButtons() {
+  //const buttons = document.querySelectorAll('button');
+  //for (let i = 0; i < buttons.length; i++) {
+    //if (selectedButtons.indexOf(buttons[i].value) !== -1) {
+      //buttons[i].disabled = true;
+    //} else {
+     // buttons[i].disabled = false;
+    //}
+  //}
 //}
-
-function disableButtons() {
-  const buttons = document.querySelectorAll('button');
-  for (let i = 0; i < buttons.length; i++) {
-    if (selectedButtons.indexOf(buttons[i].value) !== -1) {
-      buttons[i].disabled = true;
-    } else {
-      buttons[i].disabled = false;
-    }
-  }
-}
 
 function checkAnswer(e) {
 
   //var stpi = JSON.parse(questions);
-  //var tyn = stpi.right_answers.ra.length;
+  var tyn = questions[1].right_answers.length;
 
 
   const selectedBtn = e.target;
-  const correctAnswers = questions.right_answers.value;
+  const correctAnswers = questions[1].right_answers.value;
   const isCorrect = selectedBtn.dataset.correct === "true";
 
 
@@ -196,11 +184,11 @@ function checkAnswer(e) {
     {
       selectedBtn.classList.add("red-border");
     }
-  disableButtons();
+  //disableButtons();
  
   });
      next_button.style.display = "block";
-  }
+ }
 
 
 function showScore()
